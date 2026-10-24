@@ -1,0 +1,55 @@
+#ifndef _W25Q_H
+#define _W25Q_H
+#include "stm32f1xx_hal.h"
+#include "main.h"
+#include "spi.h"
+//参数表
+#define W25Q_WRITE_ENABLE 0X06
+#define VOLATILE_SR_WRITE_ENABLE 0X50
+#define W25Q_WRITE_DISABLE 0X04
+#define W25Q_RELEASE_POWER_DOWM 0XAB
+#define W25Q_MANUFACTURE 0X90
+#define W25Q_JEDEC_ID 0X9F
+#define W25Q_UNIQUE_ID 0X4B
+#define W25Q_READ_DATA 0X03
+#define W25Q_FAST_READ 0X0B
+#define W25Q_PAGE_PROGRAM 0X02
+#define W25Q_SECTOR_ERASE_4KB 0X20
+#define W25Q_BLOCK_ERASE_32KB 0X52
+#define W25Q_BLOCK_ERASE_64KB 0XD8
+#define W25Q_CHIP_ERASE 0XC7
+#define W25Q_READ_STATUS_REGESTER_1 0X05
+#define W25Q_WRITE_STATUS_REGESTER_1 0X01
+#define W25Q_READ_STATUS_REGESTER_2 0X35
+#define W25Q_WRITE_STATUS_REGESTER_2 0X31
+#define W25Q_READ_STATUS_REGESTER_3 0X15
+#define W25Q_WRITE_STATUS_REGESTER_3 0X11
+#define W25Q_READ_SFDP_REGESTER 0X5A
+#define W25Q_ERASE_SECURITY_REGESTER 0X44
+#define W25Q_PROGRAM_SECURITY_REGESTER 0X42
+#define W25Q_READ_SECURITY_REGESTER 0X48
+#define W25Q_GLOBAL_BLOCK_LOCK 0X7E
+#define W25Q_GLOBAL_BLOCK_UNLOCK 0X98
+#define W25Q_READ_BLOCK_LOCK 0X3D
+#define W25Q_INDIVIDUAL_BLOCK_LOCK 0X36
+#define W25Q_INDIVIDUAL_BLOCK_UNLOCK 0X39
+#define W25Q_ERASE_PROGRAM_SUSPEND 0X75
+#define W25Q_ERASE_PROGRAM_RESUME 0X7A
+#define W25Q_POWER_DOWN 0XB9
+#define W25Q_ENABLE_RESET 0X66
+#define W25Q_RESET_DEVICE 0X99
+
+#define W25Q_CS_L HAL_GPIO_WritePin(W25Q_CS_GPIO_Port,W25Q_CS_Pin,GPIO_PIN_RESET)
+#define W25Q_CS_H HAL_GPIO_WritePin(W25Q_CS_GPIO_Port,W25Q_CS_Pin,GPIO_PIN_SET)
+
+uint32_t W25Q_Read_JEDEC_ID(void);
+
+void W25Q_WriteEnable(void);
+void W25Q_WaitBusy(void);
+void W25Q_EraseSector(uint32_t addr);
+void W25Q_WriteData(uint32_t addr,uint8_t *data,uint32_t size);
+void W25Q_ReadData(uint32_t addr,uint8_t *data,uint32_t size);
+void W25Q_WriteDataDMA(uint32_t addr,uint8_t *data,uint32_t size);
+void W25Q_ReadDataDMA(uint32_t addr,uint8_t *data,uint32_t size);
+	
+#endif
