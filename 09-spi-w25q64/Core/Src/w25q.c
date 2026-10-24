@@ -36,6 +36,7 @@ void W25Q_EraseSector(uint32_t addr){
 	W25Q_CS_L;
 	HAL_SPI_Transmit(&hspi1,buf,4,0xff);
 	W25Q_CS_H;
+	W25Q_WaitBusy();
 }
 void W25Q_WriteData(uint32_t addr,uint8_t *data,uint32_t size){
 	W25Q_WriteEnable();
@@ -48,8 +49,8 @@ void W25Q_WriteData(uint32_t addr,uint8_t *data,uint32_t size){
 	W25Q_CS_L;
 	HAL_SPI_Transmit(&hspi1,buf,4,0xff);
 	HAL_SPI_Transmit(&hspi1,data,size,0xffff);
-	W25Q_WaitBusy();
 	W25Q_CS_H;
+	W25Q_WaitBusy();
 }
 void W25Q_ReadData(uint32_t addr,uint8_t *data,uint32_t size){
 	W25Q_WaitBusy();
