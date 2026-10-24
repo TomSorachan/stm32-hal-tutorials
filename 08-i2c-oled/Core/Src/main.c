@@ -97,8 +97,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	OLED_Init(); // 初始化小屏幕（会自动清屏）
-
 	// 在第 1 行第 1 列显示字符串
 	OLED_ShowString(1, 1, "Hello World!");
 
