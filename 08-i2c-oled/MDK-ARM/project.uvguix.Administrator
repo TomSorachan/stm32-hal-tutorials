@@ -1865,9 +1865,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>../Core/Src/main.c</Name>
-        <ColumnNumber>0</ColumnNumber>
+        <ColumnNumber>14</ColumnNumber>
         <TopLine>76</TopLine>
-        <CurrentLine>104</CurrentLine>
+        <CurrentLine>90</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1875,7 +1875,7 @@
       <Doc>
         <Name>..\Core\Src\OLED.c</Name>
         <ColumnNumber>0</ColumnNumber>
-        <TopLine>34</TopLine>
+        <TopLine>15</TopLine>
         <CurrentLine>16</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
